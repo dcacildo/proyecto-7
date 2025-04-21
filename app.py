@@ -5,7 +5,7 @@ import streamlit as st
 st.header('Data viewer')
 
 car_data = pd.read_csv(
-    'C:\\Users\Daniel Calcino\\vehicles_env\\proyecto-7\\vehicles_us.csv')  # leer los datos
+    'vehicles_us.csv')  # leer los datos
 hist_button = st.checkbox('Construir histograma')  # crear un botón
 disp_button = st.checkbox('Construir grafico de dispersión')
 
