@@ -7,7 +7,19 @@ st.header('Data viewer')
 car_data = pd.read_csv(
     'vehicles_us.csv')  # leer los datos
 
-st.dataframe(car_data)
+
+
+data_button = st.button('Mostrar Datos') # crear botón de data
+
+if data_button:
+    # al hacer clic en el botón
+    # escribir un mensaje
+    st.write(
+        'Visualización de los datos')
+    
+    # Muestra el dataframe
+    st.dataframe(car_data)
+
 
 hist_button = st.checkbox('Construir histograma')  # crear un botón
 
