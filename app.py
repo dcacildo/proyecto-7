@@ -24,7 +24,7 @@ if data_button:  # al hacer clic en el botón
     st.dataframe(car_data_a_mostrar)
 
 
-hist_button = st.button('Construir histograma')  # crear un botón
+hist_button = st.checkbox('Construir histograma')  # crear un botón
 
 
 if hist_button:
@@ -39,7 +39,7 @@ if hist_button:
     # mostrar un gráfico Plotly interactivo
     st.plotly_chart(fig, use_container_width=True)
 
-disp_button = st.button('Construir grafico de dispersión')
+disp_button = st.checkbox('Construir grafico de dispersión')
 
 
 if disp_button:
@@ -55,3 +55,6 @@ if disp_button:
     st.plotly_chart(fig2, use_container_width=True)
 
 
+fig3 = px.bar(car_data, x="model")
+
+st.plotly_chart(fig3)
