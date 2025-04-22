@@ -9,19 +9,22 @@ car_data = pd.read_csv(
 
 
 
-data_button = st.button('Mostrar Datos') # crear botón de data
+data_button = st.checkbox('Mostrar Datos')  # crear botón de data
+mostrar_sin_nulos = st.checkbox('Mostrar solo datos sin valores nulos')
 
-if data_button:
-    # al hacer clic en el botón
+if data_button:  # al hacer clic en el botón
     # escribir un mensaje
-    st.write(
-        'Visualización de los datos')
+    st.write('Visualización de los datos')
     
-    # Muestra el dataframe
-    st.dataframe(car_data)
+    if mostrar_sin_nulos:
+        car_data_a_mostrar = car_data.dropna()
+    else:
+        car_data_a_mostrar = car_data
+    
+    st.dataframe(car_data_a_mostrar)
 
 
-hist_button = st.checkbox('Construir histograma')  # crear un botón
+hist_button = st.button('Construir histograma')  # crear un botón
 
 
 if hist_button:
@@ -36,7 +39,7 @@ if hist_button:
     # mostrar un gráfico Plotly interactivo
     st.plotly_chart(fig, use_container_width=True)
 
-disp_button = st.checkbox('Construir grafico de dispersión')
+disp_button = st.button('Construir grafico de dispersión')
 
 
 if disp_button:
