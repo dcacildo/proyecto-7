@@ -59,6 +59,6 @@ grupo_seleccionado = st.selectbox('Seleccione un grupo', car_data['model'].uniqu
 
 df_filtrado = car_data[car_data['model'] == grupo_seleccionado]
 
-fig3 = px.bar(df_filtrado, x="model")
+fig3 = px.bar(df_filtrado, x="model", y='model_year')
 
 st.plotly_chart(fig3,use_container_width=True)
