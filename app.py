@@ -8,7 +8,7 @@ car_data = pd.read_csv(
     'vehicles_us.csv')  # leer los datos
 hist_button = st.checkbox('Construir histograma')  # crear un botón
 
-car_data.head(50)
+st.dataframe(car_data)
 
 if hist_button:
     # al hacer clic en el botón
