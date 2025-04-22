@@ -55,6 +55,10 @@ if disp_button:
     st.plotly_chart(fig2, use_container_width=True)
 
 
-fig3 = px.bar(car_data, x="model")
+grupo_seleccionado = st.selectbox('Seleccione un grupo', car_data['model'].unique())
 
-st.plotly_chart(fig3)
+df_filtrado = car_data[car_data['model'] == grupo_seleccionado]
+
+fig3 = px.bar(df_filtrado, x="model")
+
+st.plotly_chart(fig3,use_container_width=True)
