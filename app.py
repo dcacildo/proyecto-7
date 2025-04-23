@@ -71,5 +71,5 @@ fig3 = px.histogram(df_combinado, x='price', color='grupo', barmode='overlay', n
 st.plotly_chart(fig3, use_container_width=True)
 
 
-fig4 = px.bar(car_data)
+fig4 = px.bar(car_data, x='model')
 st.plotly_chart(fig4)
