@@ -55,10 +55,17 @@ if disp_button:
     st.plotly_chart(fig2, use_container_width=True)
 
 
-grupo_seleccionado = st.selectbox('Seleccione un grupo', car_data['model'].unique())
+grupo_seleccionado1 = st.selectbox('Seleccione tipo 1', car_data['type'].unique())
+grupo_seleccionado2 = st.selectbox('Seleccione tipo 2', car_data['type'].unique())
 
-df_filtrado = car_data[car_data['model'] == grupo_seleccionado]
+df_filtrado1 = car_data[car_data['type'] == grupo_seleccionado1]
+df_filtrado1['grupo'] = grupo_seleccionado1
 
-fig3 = px.bar(df_filtrado, x="model_year", y='model')
+df_filtrado2 = car_data[car_data['type'] == grupo_seleccionado2]
+df_filtrado2['grupo'] = grupo_seleccionado2
 
-st.plotly_chart(fig3,use_container_width=True)
+df_combinado = pd.concat([df_filtrado1, df_filtrado2])
+
+fig3 = px.histogram(df_combinado, x='price', color='grupo', barmode='overlay', nbins=50, title=f'Histograma de precios para {grupo_seleccionado1} y {grupo_seleccionado2}')
+
+st.plotly_chart(fig3, use_container_width=True)
