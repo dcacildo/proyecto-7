@@ -69,3 +69,7 @@ df_combinado = pd.concat([df_filtrado1, df_filtrado2])
 fig3 = px.histogram(df_combinado, x='price', color='grupo', barmode='overlay', nbins=50, title=f'Histograma de precios para {grupo_seleccionado1} y {grupo_seleccionado2}')
 
 st.plotly_chart(fig3, use_container_width=True)
+
+
+fig4 = px.bar(car_data)
+st.plotly_chart(fig4)
